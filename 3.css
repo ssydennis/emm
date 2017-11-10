@@ -1,0 +1,25 @@
+h1{
+    color: red;
+    font-size: 40px;
+}
+p{
+    color: cyan;
+}
+th{
+    color: yellow;
+    font-size: 20px;
+}
+td{
+    color: darkorange;
+    font-size: 20px;
+}
+h3{
+    color: red;
+}
+pre{
+    color: chartreuse;
+}
+img{
+    width: 250px;
+    height: 200px;
+}
