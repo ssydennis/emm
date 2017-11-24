@@ -1,0 +1,75 @@
+#ooo{
+    font-weight: bolder;
+    font-size: small;
+    position: absolute;
+    right: 2%;
+    top: 2%;
+}
+#ooo a{
+    text-decoration: underline;
+    color: black;
+}
+#ooo a:hover{
+    color: #3366FF;
+}
+#lll{
+    font-weight: normal;
+    font-size: medium;
+    background-color: #3366FF;
+    color: white;
+    font-style: ;
+}
+#ppp{
+    position: absolute;
+    top: 10%;
+    left: 38%;
+}
+#mmm{
+    position: absolute;
+    left: 30%;
+    top: 32%;
+    border-style: hidden;
+}
+#mmm div{
+    width: 200px;
+    height: 50px;
+    display: inline-block;
+    font-size: 30px;
+    vertical-align: top;
+}
+#mmm a{
+    text-decoration: none;
+    background-color: #3366FF;
+    color: white;
+}
+#mmm a:hover{
+    background-color: #0000cc;
+}
+#iii{
+    position: absolute;
+    bottom: 10%;
+    left: 35%;
+}
+#iii a{
+    font-size: small;
+    color: #999999;
+}
+p{
+    position: absolute;
+    bottom: 5%;
+    left: 30%;
+    font-size: small;
+    color: #999999;
+}
+p a{
+    color: #999999;
+}
+#bbb{
+    position: absolute;
+    bottom: 15%;
+    left: 45%;
+}
+#bbb div{
+    color: #555555;
+    font-size: small;
+}
