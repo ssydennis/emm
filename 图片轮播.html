@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>表单作业</title>
+</head>
+<body onload="image()">
+<img id="image" src="" height="800px">
+</body>
+<script>
+    let arr = new Array();
+    arr[0] = "风景图1.jpg";
+    arr[1] = "风景图2.jpg";
+    arr[2] = "风景图3.jpg";
+    arr[3] = "风景图4.jpg";
+    arr[4] = "风景图5.jpg";
+    let i = 0;
+    function image() {
+        let ima = document.getElementById("image")
+        ima.src=arr[i];
+        i++;
+        if( i === 5 )
+            i = 0;
+        setTimeout("image()",3000);
+    }
+</script>
+</html>
