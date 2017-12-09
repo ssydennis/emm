@@ -1,0 +1,20 @@
+div{
+    text-align: center;
+}
+button{
+    width: 70px;
+    height: 70px;
+    background-color: #555555;
+    color: white;
+}
+#change{
+    width: 140px;
+}
+#lll{
+    height: 140px;
+}
+.class{
+    border: solid;
+    border-bottom-color: #888888;
+    border-width: 400px;
+}
