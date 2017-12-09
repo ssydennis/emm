@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>苏诗远的作业</title>
+    <link rel="stylesheet" href="计算器.css">
+</head>
+<body background="风景图9.jpg">
+<div class="ppp">
+    <p id="content"></p>
+</div>
+<div class="ppp">
+    <p id="result" ></p>
+</div>
+<div>
+<button type="button" onclick="get(this)">c</button>
+<button type="button" onclick="get(this)">del</button>
+<button type="button" onclick="get(this)">%</button>
+<button type="button" onclick="get(this)">/</button>
+    <button type="button" onclick="get(this)">x²</button>
+</div>
+<br/>
+<div>
+    <button type="button" onclick="get(this)">7</button>
+    <button type="button" onclick="get(this)">8</button>
+    <button type="button" onclick="get(this)">9</button>
+    <button type="button" onclick="get(this)">*</button>
+    <button type="button" onclick="get(this)">(</button>
+</div>
+<br/>
+<div>
+    <button type="button" onclick="get(this)">4</button>
+    <button type="button" onclick="get(this)">5</button>
+    <button type="button" onclick="get(this)">6</button>
+    <button type="button" onclick="get(this)">-</button>
+    <button type="button" onclick="get(this)">)</button>
+</div>
+<br/>
+<div>
+    <button type="button" onclick="get(this)">1</button>
+    <button type="button" onclick="get(this)">2</button>
+    <button type="button" onclick="get(this)">3</button>
+    <button type="button" onclick="get(this)">+</button>
+    <button type="button" onclick="get(this)">!</button>
+</div>
+<br/>
+<div>
+    <button type="button" onclick="get(this)" id="change">0</button>
+    <button type="button" onclick="get(this)">.</button>
+    <button type="button" onclick="get(this)">=</button>
+    <button type="button" onclick="get(this)">√￣</button>
+</div>
+</body>
+<script>             //只是一个初步方案，正在想怎么将sin,cos,tan,ex,ln加进去以及更加美观
+    function get(element)
+    {
+        let content = document.getElementById("content");
+        let result = document.getElementById("result");
+        let text = element.innerText;
+        if( "del" === text )
+        {
+            if ( content.innerText.length > 0 )
+            {
+                content.innerText = content.innerText.substring(0,content.innerText.length-1);
+            }
+        }
+        else if ( "√￣" === text )
+        {
+            result.innerText = content.innerText + text + "=" + Math.sqrt(content.innerText);
+        }
+        else if ( "c" === text )
+        {
+            content.innerText = "";
+        }
+        else if ( "!" === text )
+        {
+            let a , conclusion = 1 ;
+            for ( a = 1 ; a <= content.innerText ; a++ )
+            {
+                conclusion *= a;
+            }
+            result.innerText = content.innerText + text + "=" + conclusion;
+        }
+        else if( "x²" === text )
+        {
+            let conclusion = content.innerText * content.innerText;
+            result.innerText = content.innerText + "²" + "=" +  conclusion;
+        }
+        else if ( "=" === text )
+        {
+            let resultText = count(content.innerText);
+            result.innerText = content.innerText + "=" + resultText;
+            content.innerText = "";
+        }
+        else
+        {
+            content.innerText += text;
+        }
+    }
+    function count(content)
+    {
+        let n,conclusion,p1,p2;
+        if(( n = content.lastIndexOf(")")) > -1 )
+        {
+            let m;
+            if ( (m = content.lastIndexOf("(")) > -1 )
+            {
+                let translation;
+                translation = count(content.substring(m+1,n));//先算括号里，再把括号外放在一起
+                translation += content.substring(0,m);
+                translation += content.substring(n+1);
+                return count(translation);
+            }
+        }
+        if ( (n = content.indexOf("+")) > -1 )
+        {
+            p1 = content.substring(0,n);
+            p2 = content.substring(n+1);
+            return count(p1)+count(p2);
+        }
+        else if ( ( n = content.indexOf("-") ) > -1 )
+        {
+            p1 = content.substring(0,n);
+            p2 = content.substring(n+1);
+            return count(p1)-count(p2);
+        }
+        else if ((n = content.indexOf("*")) > -1 )
+        {
+            p1 = content.substring(0,n);
+            p2 = content.substring(n+1);
+            return count(p1)*count(p2);
+        }
+        else if ( (n = content.indexOf("/")) > -1 )
+        {
+            p1 = content.substring(0,n);
+            p2 = content.substring(n+1);
+            return count(p1)/count(p2);
+        }
+        else if ( ( n = content.indexOf("%")) > -1 )
+        {
+            p1 = content.substring(0,n);
+            p2 = content.substring(n+1);
+            return count(p1)%count(p2);
+        }
+
+        if ( content === "" )
+            return 0;
+        else {
+            return content = parseFloat(content);
+        }
+    }
+</script>
+</html>
