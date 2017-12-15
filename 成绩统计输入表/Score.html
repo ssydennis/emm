@@ -1,0 +1,382 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>苏诗远</title>
+    <link rel="stylesheet" href="Score.css">
+</head>
+<body background="风景图9.jpg">
+<iframe src="Score计时器.html" frameborder="0"></iframe>
+<div id="mmm">
+    <pre>姓名:</pre><input type="text" id="Name" required><br/>
+    <pre>班级:</pre><input type="text" id="Class" required><br/>
+    <pre>数学成绩: </pre><input type="number" id="mathScore" min="0" max="150" required><br/>
+    <pre>语文成绩: </pre><input type="number" id="chineseScore" min="0" max="150" required><br/>
+    <pre>理综成绩: </pre><input type="number" id="Daniel" min="0" max="300" required><br/>             <!--理综-->
+</div>
+<br/>
+<button type="button" onclick="myFunction()">提交</button>
+<div>
+    <table border="1">
+        <tr>
+            <td>姓名</td>
+            <td>班级</td>
+            <td>数学成绩</td>
+            <td>语文成绩</td>
+            <td>理综成绩</td>
+            <td>总成绩</td>
+        </tr>
+        <tr>
+            <th id="meo"></th>
+            <th id="meo1"></th>
+            <th id="meo2"></th>
+            <th id="meo3"></th>
+            <th id="meo4"></th>
+            <th id="meo5"></th>
+        </tr>
+        <tr>
+            <th id="mso"></th>
+            <th id="mso1"></th>
+            <th id="mso2"></th>
+            <th id="mso3"></th>
+            <th id="mso4"></th>
+            <th id="mso5"></th>
+        </tr>
+        <tr>
+            <th id="mao"></th>
+            <th id="mao1"></th>
+            <th id="mao2"></th>
+            <th id="mao3"></th>
+            <th id="mao4"></th>
+            <th id="mao5"></th>
+        </tr>
+        <tr>
+            <th id="mmo"></th>
+            <th id="mmo1"></th>
+            <th id="mmo2"></th>
+            <th id="mmo3"></th>
+            <th id="mmo4"></th>
+            <th id="mmo5"></th>
+        </tr>
+        <tr>
+            <th id="mno"></th>
+            <th id="mno1"></th>
+            <th id="mno2"></th>
+            <th id="mno3"></th>
+            <th id="mno4"></th>
+            <th id="mno5"></th>
+        </tr>
+    </table>
+</div>
+<br/>
+<button type="button" onclick="Math()">按数学成绩排名</button>&nbsp;
+<button type="button" onclick="Chinese()">按语文成绩排名</button>&nbsp;
+<button type="button" onclick="Daniel()">按理综成绩排名</button>&nbsp;
+<button type="button" onclick="Score()">按总成绩排名</button>&nbsp;
+</body>
+<script>
+let a = document.getElementById("Name");
+let b = document.getElementById("Class");
+let c = document.getElementById("mathScore");
+let d = document.getElementById("chineseScore");
+let e = document.getElementById("Daniel");
+let x = new Array();
+let n = 0;
+for ( let i = 0 ; i < 5 ; i++ )
+{
+    x[i] = new Array();
+    x[i][0] = "";
+}
+
+function myFunction() {
+    if( n >= 5 )
+    {
+        alert("输入数量超过容量!!!");
+    }
+    let m = 0;
+    x[n][m] = a.value;m++;
+    x[n][m] = b.value;m++;
+    x[n][m] = c.value;m++;
+    x[n][m] = d.value;m++;
+    x[n][m] = e.value;
+    for ( let i = 2 ; i < 5 ; i++ )
+    {
+        x[n][i] = Number(x[n][i]);
+    }
+    /*switch (n)                    //不懂的地方
+    {
+        case 0 :myFunction1(this.x);break;
+        case 1 :myFunction2(this.x);break;
+        case 2 :myFunction3(this.x);break;
+        case 3 :myFunction4(this.x);break;
+        case 4 :myFunction5(this.x);break;
+    }*/
+    if ( n === 0 )
+    {
+        let m = 0;
+        let answer;
+        document.getElementById("meo").innerHTML = x[n][m];m++;
+        document.getElementById("meo1").innerHTML = x[n][m];m++;
+        document.getElementById("meo2").innerHTML = x[n][m];m++;
+        document.getElementById("meo3").innerHTML = x[n][m];m++;
+        document.getElementById("meo4").innerHTML = x[n][m];m++;
+        answer = x[n][2] + x[n][3] + x[n][4];
+        x[n][m] = answer;
+        document.getElementById("meo5").innerHTML = x[n][m];
+    }
+    else if ( n === 1 )
+    {
+        let m = 0;
+        let answer;
+        document.getElementById("mso").innerHTML = x[n][m];m++;
+        document.getElementById("mso1").innerHTML = x[n][m];m++;
+        document.getElementById("mso2").innerHTML = x[n][m];m++;
+        document.getElementById("mso3").innerHTML = x[n][m];m++;
+        document.getElementById("mso4").innerHTML = x[n][m];m++;
+        answer = x[n][2] + x[n][3] + x[n][4];
+        x[n][m] = answer;
+        document.getElementById("mso5").innerHTML = x[n][m];
+    }
+    else if ( n === 2 )
+    {
+        let m = 0;
+        let answer;
+        document.getElementById("mao").innerHTML = x[n][m];m++;
+        document.getElementById("mao1").innerHTML = x[n][m];m++;
+        document.getElementById("mao2").innerHTML = x[n][m];m++;
+        document.getElementById("mao3").innerHTML = x[n][m];m++;
+        document.getElementById("mao4").innerHTML = x[n][m];m++;
+        answer = x[n][2] + x[n][3] + x[n][4];
+        x[n][m] = answer;
+        document.getElementById("mao5").innerHTML = x[n][m];
+    }
+    else if ( n === 3 )
+    {
+        let m = 0;
+        let answer;
+        document.getElementById("mmo").innerHTML = x[n][m];m++;
+        document.getElementById("mmo1").innerHTML = x[n][m];m++;
+        document.getElementById("mmo2").innerHTML = x[n][m];m++;
+        document.getElementById("mmo3").innerHTML = x[n][m];m++;
+        document.getElementById("mmo4").innerHTML = x[n][m];m++;
+        answer = x[n][2] + x[n][3] + x[n][4];
+        x[n][m] = answer;
+        document.getElementById("mmo5").innerHTML = x[n][m];
+    }
+    else if ( n === 4 )
+    {
+        let m = 0;
+        let answer;
+        document.getElementById("mno").innerHTML = x[n][m];m++;
+        document.getElementById("mno1").innerHTML = x[n][m];m++;
+        document.getElementById("mno2").innerHTML = x[n][m];m++;
+        document.getElementById("mno3").innerHTML = x[n][m];m++;
+        document.getElementById("mno4").innerHTML = x[n][m];m++;
+        answer = x[n][2] + x[n][3] + x[n][4];
+        x[n][m] = answer;
+        document.getElementById("mno5").innerHTML = x[n][m];
+    }
+    a.value = "";
+    b.value = "";
+    c.value = "";
+    d.value = "";
+    e.value = "";
+    n++;
+}
+/*function myFunction1(x) {
+    let m = 0;
+    let answer;
+    document.getElementById("meo").innerHTML = x[n][m];m++;
+    document.getElementById("meo1").innerHTML = x[n][m];m++;
+    document.getElementById("meo2").innerHTML = x[n][m];m++;
+    document.getElementById("meo3").innerHTML = x[n][m];m++;
+    document.getElementById("meo4").innerHTML = x[n][m];m++;
+    answer = x[n][2] + x[n][3] + x[n][4];
+    x[n][m] = answer;
+    document.getElementById("meo5").innerHTML = x[n][m];
+}
+function myFunction2(x) {
+    let m = 0;
+    let answer;
+    document.getElementById("mso").innerHTML = x[n][m];m++;
+    document.getElementById("mso1").innerHTML = x[n][m];m++;
+    document.getElementById("mso2").innerHTML = x[n][m];m++;
+    document.getElementById("mso3").innerHTML = x[n][m];m++;
+    document.getElementById("mso4").innerHTML = x[n][m];m++;
+    answer = x[n][2] + x[n][3] + x[n][4];
+    x[n][m] = answer;
+    document.getElementById("mso5").innerHTML = x[n][m];
+}
+function myFunction3(x) {
+    let m = 0;
+    let answer;
+    document.getElementById("mao").innerHTML = x[n][m];m++;
+    document.getElementById("mao1").innerHTML = x[n][m];m++;
+    document.getElementById("mao2").innerHTML = x[n][m];m++;
+    document.getElementById("mao3").innerHTML = x[n][m];m++;
+    document.getElementById("mao4").innerHTML = x[n][m];m++;
+    answer = x[n][2] + x[n][3] + x[n][4];
+    x[n][m] = answer;
+    document.getElementById("mao5").innerHTML = x[n][m];
+}
+function myFunction4(x) {
+    let m = 0;
+    let answer;
+    document.getElementById("mmo").innerHTML = x[n][m];m++;
+    document.getElementById("mmo1").innerHTML = x[n][m];m++;
+    document.getElementById("mmo2").innerHTML = x[n][m];m++;
+    document.getElementById("mmo3").innerHTML = x[n][m];m++;
+    document.getElementById("mmo4").innerHTML = x[n][m];m++;
+    answer = x[n][2] + x[n][3] + x[n][4];
+    x[n][m] = answer;
+    document.getElementById("mmo5").innerHTML = x[n][m];
+}
+function myFunction5(x) {
+    let m = 0;
+    let answer;
+    document.getElementById("mno").innerHTML = x[n][m];m++;
+    document.getElementById("mno1").innerHTML = x[n][m];m++;
+    document.getElementById("mno2").innerHTML = x[n][m];m++;
+    document.getElementById("mno3").innerHTML = x[n][m];m++;
+    document.getElementById("mno4").innerHTML = x[n][m];m++;
+    answer = x[n][2] + x[n][3] + x[n][4];
+    x[n][m] = answer;
+    document.getElementById("mno5").innerHTML = x[n][m];
+}*/      //里面为swich语句传值问题，不知道为什么不好使！
+function Math() {
+    for ( let i = 0 ; i < 5 ; i++ )
+    {
+        let a = i ;
+        for ( let k = i + 1 ; k < 5 ; k ++ )
+        {
+            if ( x[a][2] < x[k][2] )
+                a = k;
+        }
+        if ( a !== i )
+        {
+            for ( let o = 0 ; o < 6 ; o ++ )
+            {
+                let temp;
+                temp = x[a][o];
+                x[a][o] = x[i][o];
+                x[i][o] = temp;
+            }
+        }
+    }
+    printf();
+}    
+function Chinese() {
+    for ( let i = 0 ; i < 5 ; i++ )
+    {
+        let a = i ;
+        for ( let k = i + 1 ; k < 5 ; k ++ )
+        {
+            if ( x[a][3] < x[k][3] )
+                a = k;
+        }
+        if ( a !== i )
+        {
+            for ( let o = 0 ; o < 6 ; o ++ )
+            {
+                let temp;
+                temp = x[a][o];
+                x[a][o] = x[i][o];
+                x[i][o] = temp;
+            }
+        }
+    }
+    printf();
+}
+function Daniel() {
+    for ( let i = 0 ; i < 5 ; i++ )
+    {
+        let a = i ;
+        for ( let k = i + 1 ; k < 5 ; k ++ )
+        {
+            if ( x[a][4] < x[k][4] )
+                a = k;
+        }
+        if ( a !== i )
+        {
+            for ( let o = 0 ; o < 6 ; o ++ )
+            {
+                let temp;
+                temp = x[a][o];
+                x[a][o] = x[i][o];
+                x[i][o] = temp;
+            }
+        }
+    }
+    printf();
+}
+function Score() {
+    for ( let i = 0 ; i < 5 ; i++ )
+    {
+        let a = i ;
+        for ( let k = i + 1 ; k < 5 ; k ++ )
+        {
+            if ( x[a][5] < x[k][5] )
+                a = k;
+        }
+        if ( a !== i )
+        {
+            for ( let o = 0 ; o < 6 ; o ++ )
+            {
+                let temp;
+                temp = x[a][o];
+                x[a][o] = x[i][o];
+                x[i][o] = temp;
+            }
+        }
+    }
+    printf();
+}
+function printf() {
+    if ( x[0][0] !== "" )
+    {
+        document.getElementById("meo").innerHTML = x[0][0];
+        document.getElementById("meo1").innerHTML = x[0][1];
+        document.getElementById("meo2").innerHTML = x[0][2];
+        document.getElementById("meo3").innerHTML = x[0][3];
+        document.getElementById("meo4").innerHTML = x[0][4];
+        document.getElementById("meo5").innerHTML = x[0][5];
+    }
+    if ( x[1][0] !== "" )
+    {
+        document.getElementById("mso").innerHTML = x[1][0];
+        document.getElementById("mso1").innerHTML = x[1][1];
+        document.getElementById("mso2").innerHTML = x[1][2];
+        document.getElementById("mso3").innerHTML = x[1][3];
+        document.getElementById("mso4").innerHTML = x[1][4];
+        document.getElementById("mso5").innerHTML = x[1][5];
+    }
+    if ( x[2][0] !== "" )
+    {
+        document.getElementById("mao").innerHTML = x[2][0];
+        document.getElementById("mao1").innerHTML = x[2][1];
+        document.getElementById("mao2").innerHTML = x[2][2];
+        document.getElementById("mao3").innerHTML = x[2][3];
+        document.getElementById("mao4").innerHTML = x[2][4];
+        document.getElementById("mao5").innerHTML = x[2][5];
+    }
+    if ( x[3][0] !== "" )
+    {
+        document.getElementById("mmo").innerHTML = x[3][0];
+        document.getElementById("mmo1").innerHTML = x[3][1];
+        document.getElementById("mmo2").innerHTML = x[3][2];
+        document.getElementById("mmo3").innerHTML = x[3][3];
+        document.getElementById("mmo4").innerHTML = x[3][4];
+        document.getElementById("mmo5").innerHTML = x[3][5];
+    }
+    if ( x[4][0] !== "" )
+    {
+        document.getElementById("mno").innerHTML = x[4][0];
+        document.getElementById("mno1").innerHTML = x[4][1];
+        document.getElementById("mno2").innerHTML = x[4][2];
+        document.getElementById("mno3").innerHTML = x[4][3];
+        document.getElementById("mno4").innerHTML = x[4][4];
+        document.getElementById("mno5").innerHTML = x[4][5];
+    }
+}
+</script>
+</html>

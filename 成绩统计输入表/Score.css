@@ -1,0 +1,26 @@
+iframe{
+    position: absolute;
+    right: 0;
+}
+#mmm{
+    display: inline-block;
+}
+input{
+    width: 300px;
+    height: 30px;
+}
+pre{
+    color: #3366FF;
+}
+table{
+    text-align: right;
+}
+#meo{
+    text-align: right;
+}
+td,th{
+    text-align: center;
+    width: 150px;
+    height: 20px;
+    color: #ff1516;
+}

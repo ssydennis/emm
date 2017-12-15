@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <meta http-equiv="Refresh" content="1"/>
+    <style>
+        p{
+            text-align: center;
+            font-size: 40px;
+            color: #318fe1;
+        }
+    </style>
+</head>
+<body>
+<p id="meo"></p>
+</body>
+<script>
+    let hour = new Date().getHours();
+    let minute = new Date().getMinutes();
+    let second = new Date().getSeconds();
+    if( minute < 10 )
+    {
+        minute = "0" + minute;
+        parseInt(minute);
+    }
+    if (second < 10 )
+    {
+        second = "0" + second;
+        parseInt(second);
+    }
+    let time = hour + ":" + minute +":" + second;
+    document.getElementById("meo").innerHTML=time;
+</script>
+</html>
