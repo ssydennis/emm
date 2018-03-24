@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>OurEDA作业</title>
+    <style>
+        #b{
+            color: red;
+            font-size: 40px;
+            float: left;
+        }
+        #c{
+            margin-left: 60px;
+            margin-top: 60px;
+            float: left;
+            font-size: 20px;
+        }
+        #d{
+            color: cornflowerblue;
+            font-size: 30px;
+        }
+        #p1{
+            width: 300px;
+            font-size: 25px;
+            height: 25px;
+        }
+        #p2{
+            width: 300px;
+            font-size: 25px;
+            height: 25px;
+        }
+        #p3{
+            width: 300px;
+            font-size: 25px;
+            height: 25px;
+        }
+        #p4{
+            width: 300px;
+            font-size: 25px;
+            height: 25px;
+        }
+        #p5{
+            width: 300px;
+            font-size: 25px;
+            height: 25px;
+        }
+    </style>
+</head>
+<body>
+<div>
+    <p id="b"><b><i>OurEDA</i></b></p>
+    <p><p id="c"><b><i>大二老学姐注册系统</i></b></p>
+    <img src="理直气壮.jpg" width="100px" height="100px" style="margin-left: 40px; float: left">
+    <img src="哼.png" width="100px" height="100px" style="margin-left: 40px;float: left">
+    <img src="啊.png" width="100px" height="100px" style="margin-left: 40px;float: left">
+    <img src="敲头.png" width="100px" height="100px" style="margin-left: 40px;float: left">
+</div>
+<br/><br/><br/><br/><br/><br/><br/>
+<div>
+<form id="d">
+    学姐名字：&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<input type="text" required="required" value="周学姐" id="p1">&nbsp;&nbsp;<button type="button" onclick="P1()" style="color: dodgerblue;font-size: 20px">清除</button><br/><br/>
+    学姐方向：&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<input type="text" required="required" value="web组" id="p5">&nbsp;&nbsp;<button type="button" onclick="P7()" style="color: dodgerblue;font-size: 20px">清除</button><br/><br/>
+    学姐手机号：&nbsp;&nbsp;<input type="number" required="required" value="18742021111" id="p2" maxlength="12">&nbsp;&nbsp;<button type="button" onclick="P2()" style="color: dodgerblue;font-size: 20px">清除</button><br/><br/>
+    学姐邮箱：&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<input type="text" required="required" value="111111@qq.com" id="p3">&nbsp;&nbsp;<button type="button" onclick="P3()" style="color: dodgerblue;font-size: 20px">清除</button> <br/><br/>
+    学姐寝室号：&nbsp;&nbsp;<input type="text" required="required" value="5舍515" id="p4">&nbsp;&nbsp;<button type="button" onclick="P4()" style="color: dodgerblue;font-size: 20px">清除</button><br/><br/>
+    <button type="button" onclick="P5()" style="color: dodgerblue;font-size: 20px">重置</button>
+    <button type="button" onclick="P6()" style="color: dodgerblue;font-size: 20px;">提交</button>
+</form>
+</div>
+<br/>
+</body>
+<script type="text/javascript">
+    function P1() {
+        document.getElementById("p1").value = "";
+    }
+    function P2() {
+        document.getElementById("p2").value = "";
+    }
+    function P3() {
+        document.getElementById("p3").value = "";
+    }
+    function P4() {
+        document.getElementById("p4").value = "";
+    }
+    function P7() {
+        document.getElementById("p5").value = "";
+    }
+    function P5() {
+        P1();P2();P3();P4();P7();
+    }
+    function P6() {
+        var p1 = document.getElementById("p1").value;
+        var p2 = document.getElementById("p2").value;
+        var p3 = document.getElementById("p3").value;
+        var p4 = document.getElementById("p4").value;
+        var p5 = document.getElementById("p5").value;
+        var q1 = /^[\u4e00-\u9fa5]{3,}$/;
+        var q2 = /^[1][0-9]{10,10}$/;
+        var q3 = /^([1-9]|[a-zA-Z]){1,1}([0-9]|[a-zA-Z_])+@([1-9]+[a-zA-Z]*\.|[a-zA-Z]+[0-9]*\.)+(cn|com)$/;
+        var q4 = /^[1-6][\u4e00-\u9fa5][1-7][1-2][1-8]/;
+        var q5 = /^([a-zA-Z]|[\u4e00-\u9fa5])+[组]?$/;
+        var q6 = /^((?!学姐).)*$/;
+        var q7 = /\w+_@/;
+        var x1 = p1.match(q1);
+        var x2 = p2.match(q2);
+        var x3 = p3.match(q3);
+        var x4 = p4.match(q4);
+        var x5 = p5.match(q5);
+        var x6 = p1.match(q6);
+        var x7 = p3.match(q7);
+        if( x1 == null )
+        {
+            alert("学姐姓名只能是全中文.");
+        }
+        if( x2 == null )
+        {
+            alert("手机号为11位数字.");
+        }
+        if( x3 == null )
+        {
+            alert("请填写有效的邮箱");
+        }
+        if( x4 == null )
+        {
+            alert("请填写正确的宿舍号码");
+        }
+        if( x5 == null )
+        {
+            alert("请填写正确的专业方向");
+        }
+        if( x6 != null )
+        {
+            alert("哼,名称中没有出现学姐");
+        }
+        if( x7 != null )
+        {
+            alert("邮箱名最后一位不能为下划线");
+        }
+        if( x1 != null && x2 != null && x3 != null && x4 != null && x5 != null && x6 == null  && x7 == null )
+        {
+            alert("提交成功!");
+            P5();
+        }
+    }
+</script>
+</html>
